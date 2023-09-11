@@ -1,5 +1,6 @@
 import java.io.IOException;
-
+//COM4 <=> COM10
+//COM5 <=> COM9
 //Work with COM-port Java
 public class Main {
     public static void main(String[] args) throws IOException {
