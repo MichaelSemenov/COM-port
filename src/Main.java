@@ -5,9 +5,12 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) throws IOException {
         CreateComPort comPort = new CreateComPort();
+        //Первая лабораторная работа
         comPort.createComPort();
-        comPort.firstSendInformation();
-        comPort.secondSendInformation();
+//        comPort.firstSendInformation();
+//        comPort.secondSendInformation();
+        //Вторая лабораторная работа
+        comPort.workWithPacket();
         comPort.closePort();
     }
 }

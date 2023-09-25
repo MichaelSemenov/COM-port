@@ -1,15 +1,19 @@
 import com.fazecast.jSerialComm.SerialPort;
-import com.fazecast.jSerialComm.SerialPortDataListener;
-import jdk.jshell.SourceCodeAnalysis;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.sql.SQLOutput;
-import java.util.Random;
 import java.util.Scanner;
 
 public class CreateComPort {
+
+    private static String binaryFlag;
+    int numberGroup = 19;
+    static{
+        System.out.println("Создание флага пакета передачи");
+        binaryFlag = Integer.toBinaryString('Z' + 19);
+
+    }
     static int counter = 0;
     //Виртуальный порт для первого компьютера для передачи
     SerialPort virtualPort;
@@ -148,5 +152,31 @@ public class CreateComPort {
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
     }
+
+
+    //Методы для работы с COM-портами с пакетами, для работы с пакетами лучше использовать writeBytes и readBytes
+
+    public void workWithPacket() throws IOException {
+        System.out.println("Введите строку для передачи ее в пакетном состоянии");
+        Scanner scanner = new Scanner(System.in);
+        WrapperPacket wrapperPacket = new WrapperPacket();
+        System.out.println("Введите строку для передачи данных!");
+        wrapperPacket.createMainInformation(scanner.nextLine());
+        wrapperPacket.encryptionWithByteStuffing();
+        System.out.println("Формирование пакета произошло успешно!");
+        //Отправка пакета данных
+        InputStream inputStream1 = virtualPort_1.getInputStream();
+        OutputStream outputStream2 = virtualPort.getOutputStream();
+        byte[] date = wrapperPacket.getMainPacketInformation();
+        outputStream2.write(date);
+        byte[] buffer = new byte[1024];
+        int bytesRead = inputStream1.read(buffer);
+        System.out.println("Через порт был передан пакет данных!");
+        ReadInfo readInfo = new ReadInfo();
+        readInfo.giveInfo(new String(buffer, 0, bytesRead));
+    }
+
+
+
 
 }
