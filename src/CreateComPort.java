@@ -157,10 +157,10 @@ public class CreateComPort {
     //Методы для работы с COM-портами с пакетами, для работы с пакетами лучше использовать writeBytes и readBytes
 
     public void workWithPacket() throws IOException {
-        System.out.println("Введите строку для передачи ее в пакетном состоянии");
+        System.out.print("Введите строку для передачи ее в пакетном состоянии: ");
         Scanner scanner = new Scanner(System.in);
         WrapperPacket wrapperPacket = new WrapperPacket();
-        System.out.println("Введите строку для передачи данных!");
+        System.out.print("Введите строку для передачи данных: ");
         wrapperPacket.createMainInformation(scanner.nextLine());
         wrapperPacket.encryptionWithByteStuffing();
         System.out.println("Формирование пакета произошло успешно!");
