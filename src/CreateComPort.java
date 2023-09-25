@@ -173,6 +173,7 @@ public class CreateComPort {
         int bytesRead = inputStream1.read(buffer);
         System.out.println("Количество переданных байт: " + bytesRead);
         System.out.println("Через порт был передан пакет данных!");
+        //Чтение переданных пакетов
         ReadInfo readInfo = new ReadInfo();
         readInfo.giveInfo(new String(buffer, 0, bytesRead));
     }
