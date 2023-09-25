@@ -171,6 +171,7 @@ public class CreateComPort {
         outputStream2.write(date);
         byte[] buffer = new byte[1024];
         int bytesRead = inputStream1.read(buffer);
+        System.out.println("Количество переданных байт: " + bytesRead);
         System.out.println("Через порт был передан пакет данных!");
         ReadInfo readInfo = new ReadInfo();
         readInfo.giveInfo(new String(buffer, 0, bytesRead));

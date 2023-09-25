@@ -12,7 +12,7 @@ public class Packet {
         System.out.println("===================================================================");
         int counter = 4 + str.getBytes().length;
         information = new byte[counter];
-        information[0] = (byte) ('z' + 19);
+        information[0] = (byte)('z' + 19);
         System.out.println("Флаговый байт отправки: " + information[0]);
         information[1] = (byte) 0;
         System.out.println("Адресный байт отправки: " + information[1]);
@@ -36,13 +36,17 @@ public class Packet {
     }
 
     public void createByteStuffing(){
-        char ch = (char) information[0];
+        System.out.println("=================================================");
+        System.out.println("Включен байт-стаффинг");
+        char ch = (char)information[0];
+        System.out.println("Изменение символа: " + ch + " или " + information[0]);
         for(int i = 3; i < information.length - 1; ++i){
             if((char)information[i] == ch){
                 information[i] = 0;
                 System.out.println("Проведена шифрования символа");
             }
         }
+        System.out.println("=================================================");
     }
 
 }

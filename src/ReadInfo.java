@@ -8,9 +8,12 @@ public class ReadInfo {
     }
 
     public void giveInfo(String test){
+        System.out.println("===============================================");
+        System.out.println("Длина строки при получении: " + test.length());
         usefullInformation = test;
         byte[] information = usefullInformation.getBytes();
         char ch = (char) information[0];
+        System.out.println("Поиск дешифровки на данный символ: " + ch + " или " + information[0] + " или " + test.charAt(0));
         for(int i = 3; i < information.length ; ++i){
             if((char)information[i] == 0){
                 information[i] = information[0];
@@ -19,9 +22,10 @@ public class ReadInfo {
         }
         //Вырезаем полезную информацию
         for(int i = 3; i < information.length - 1; ++i){
-            System.out.print(information[i]);
+            char str = (char)information[i];
+            System.out.print(str);
         }
-
+        System.out.println("\n===============================================");
     }
 
 
