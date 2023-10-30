@@ -1,5 +1,8 @@
+package lab123;
+
+import lab123.FcsCyclicCode;
+
 import java.nio.ByteBuffer;
-import java.sql.SQLOutput;
 
 public class Packet {
 
@@ -60,5 +63,8 @@ public class Packet {
         }
         System.out.println("=================================================");
     }
+
+
+
 
 }

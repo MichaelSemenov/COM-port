@@ -1,6 +1,8 @@
+package lab123;
+
+import lab123.Packet;
+
 public class WrapperPacket {
-
-
     //В данной лабораторной работе используется один пакет, так как по варианту
     //Задания полезная информация передается безграничная
     private Packet mainInformation;
@@ -22,4 +24,5 @@ public class WrapperPacket {
     public byte[] getMainPacketInformation(){
         return this.mainInformation.getByteInformation();
     }
+
 }

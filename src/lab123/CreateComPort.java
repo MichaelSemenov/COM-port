@@ -1,4 +1,7 @@
+package lab123;
+
 import com.fazecast.jSerialComm.SerialPort;
+import lab4.SendingMultiPackage;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -178,7 +181,41 @@ public class CreateComPort {
         readInfo.giveInfo(new String(buffer, 0, bytesRead));
     }
 
+    public static String getBinaryFlag() {
+        return binaryFlag;
+    }
 
+    public int getNumberGroup() {
+        return numberGroup;
+    }
 
+    public static int getCounter() {
+        return counter;
+    }
 
+    public SerialPort getVirtualPort() {
+        return virtualPort;
+    }
+
+    public SerialPort getVirtualPort1() {
+        return virtualPort1;
+    }
+
+    public SerialPort getVirtualPort_1() {
+        return virtualPort_1;
+    }
+
+    public SerialPort getVirtualPort1_1() {
+        return virtualPort1_1;
+    }
+
+    public void syncSending() {
+        //Для проверки будет создано два потока для отправки сообщения
+        SendingMultiPackage test1 = new SendingMultiPackage("Тестовая строка1");
+        SendingMultiPackage test2 = new SendingMultiPackage("Тестовая строка2");
+        SendingMultiPackage test3 = new SendingMultiPackage("тестовая строка3");
+        test1.start();
+        test2.start();
+        test3.start();
+    }
 }
