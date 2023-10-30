@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import static java.lang.Thread.sleep;
+
 public class SyncSendingMessage {
 
     static InputStream inputStream1;
@@ -19,7 +21,8 @@ public class SyncSendingMessage {
         outputStream2 = Main.informationComPortProgramm.getVirtualPort().getOutputStream();
     }
 
-    public static synchronized void sendMessage(WrapperPacket packet) throws IOException {
+    public static synchronized void sendMessage(WrapperPacket packet) throws IOException, InterruptedException {
+        System.out.println("Началась потоковая передача данных!");
         byte[] date = packet.getMainPacketInformation();
         outputStream2.write(date);
         byte[] buffer = new byte[1024];
@@ -29,5 +32,6 @@ public class SyncSendingMessage {
         //Чтение переданных пакетов
         ReadInfo readInfo = new ReadInfo();
         readInfo.giveInfo(new String(buffer, 0, bytesRead));
+        sleep(5000);
     }
 }

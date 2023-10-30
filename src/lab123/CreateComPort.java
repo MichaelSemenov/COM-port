@@ -209,13 +209,19 @@ public class CreateComPort {
         return virtualPort1_1;
     }
 
-    public void syncSending() {
+    public void syncSending() throws InterruptedException {
         //Для проверки будет создано два потока для отправки сообщения
-        SendingMultiPackage test1 = new SendingMultiPackage("Тестовая строка1");
-        SendingMultiPackage test2 = new SendingMultiPackage("Тестовая строка2");
-        SendingMultiPackage test3 = new SendingMultiPackage("тестовая строка3");
-        test1.start();
-        test2.start();
-        test3.start();
+        SendingMultiPackage test1 = new SendingMultiPackage("Hello1");
+        SendingMultiPackage test2 = new SendingMultiPackage("Hello2");
+        SendingMultiPackage test3 = new SendingMultiPackage("Hello3");
+        Thread thread1 = new Thread(test1);
+        Thread thread2 = new Thread(test2);
+        Thread thread3 = new Thread(test3);
+        thread1.start();
+        thread2.start();
+        thread3.start();
+        thread1.join();
+        thread2.join();
+        thread3.join();
     }
 }

@@ -16,7 +16,8 @@ public class SendingMultiPackage extends Thread{
         packet.encryptionWithByteStuffing();
         try {
             SyncSendingMessage.sendMessage(packet);
-        } catch (IOException e) {
+            System.out.println("Поток завершил свою работу!");
+        } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
     }

@@ -25,13 +25,13 @@ public class Packet {
         System.out.println("Адресный байт приема: " + information[2]);
         information[information.length - 1] = (byte) 0;
         System.out.println("Адресный байт FCS: " + information[information.length - 1]);
-        FcsCyclicCode test = new FcsCyclicCode();
-        long fcs = test.createCyclicOperation(str.getBytes());
-        byte [] b_fcs = new byte[1];
-        System.out.println("Ошибка возникает тут!");
-        buffer = ByteBuffer.wrap(b_fcs);
-        buffer.putLong(fcs);
-        buffer.rewind();
+    /*    FcsCyclicCode test = new FcsCyclicCode();*/
+//        long fcs = test.createCyclicOperation(str.getBytes());
+//        byte [] b_fcs = new byte[1];
+//        System.out.println("Ошибка возникает тут!");
+//        buffer = ByteBuffer.wrap(b_fcs);
+//        buffer.putLong(fcs);
+//        buffer.rewind();
         System.out.print("Контрольные данные хранящие в FCS: ");
        // information[information.length - 1] = buffer.get();
         System.out.println(information[information.length - 1]);

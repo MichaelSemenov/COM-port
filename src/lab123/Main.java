@@ -9,7 +9,7 @@ import java.io.IOException;
 public class Main {
 
     public static CreateComPort informationComPortProgramm;
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
         CreateComPort comPort = new CreateComPort();
         informationComPortProgramm = comPort;
         //Первая лабораторная работа
@@ -17,7 +17,7 @@ public class Main {
 //        comPort.firstSendInformation();
 //        comPort.secondSendInformation();
         //Вторая лабораторная работа
-        comPort.workWithPacket();
+        // comPort.workWithPacket();
         comPort.syncSending();
         comPort.closePort();
     }

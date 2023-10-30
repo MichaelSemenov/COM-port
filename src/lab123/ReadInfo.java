@@ -27,10 +27,10 @@ public class ReadInfo {
         long test_1 = 0;
       /*  ByteBuffer byteBuffer = ByteBuffer.wrap(informationForFcs);
         long test_1 = byteBuffer.getLong();*/
-        long test_2 = information[information.length - 1];
+/*        long test_2 = information[information.length - 1];
         if(test_1 == test_2){
             System.out.println("Контрольное значение прошло успешно проверку!");
-        } else System.out.println("Контрольное значение прошло успешно проверку");
+        } else System.out.println("Контрольное значение прошло успешно проверку");*/
         //Вырезаем полезную информацию
         for(int i = 3; i < information.length - 1; ++i){
             char str = (char)information[i];
