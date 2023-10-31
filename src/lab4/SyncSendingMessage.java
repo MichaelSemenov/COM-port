@@ -33,5 +33,6 @@ public class SyncSendingMessage {
         ReadInfo readInfo = new ReadInfo();
         readInfo.giveInfo(new String(buffer, 0, bytesRead));
         sleep(5000);
+        SendingMultiPackage.sync.notify();
     }
 }
