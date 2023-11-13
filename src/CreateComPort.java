@@ -177,8 +177,4 @@ public class CreateComPort {
         ReadInfo readInfo = new ReadInfo();
         readInfo.giveInfo(new String(buffer, 0, bytesRead));
     }
-
-
-
-
 }
